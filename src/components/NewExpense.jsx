@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import ExpenseForm from './ExpenseForm'
 import '../Style/newExpense.css'
+import { v4 as uuidv4 } from 'uuid';
+
 const NewExpense = (props) => {
 
   const [isEditing, setIsEditing] = useState(false);
@@ -8,7 +10,7 @@ const NewExpense = (props) => {
   const onSaveExpenseHandler = (onSaveExpenseData) => {
     onSaveExpenseData = {
       ...onSaveExpenseData,
-      id: Math.random().toString()
+      id: uuidv4()
     }
 
     props.addNewExpenseHandler(onSaveExpenseData)
